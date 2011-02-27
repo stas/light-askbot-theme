@@ -1,0 +1,107 @@
+@import url('reset.css');
+@import url('typography.css');
+@import url('prettify.css');
+@import url('jquery.autocomplete.css');
+
+/* Import Ubuntu Web Font */
+@import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic');
+
+/*
+Layout
+*/
+
+body { background: transparent url("../img/dotted-bg.png") top; }
+.notify { height: 20px; margin: 0 auto; width: 980px; background: #FFF; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+#ab-header { width: 980px; height: 62px; margin: 0 auto; overflow: hidden; background: #DD4814 url("../img/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
+#ab-logo { width: 130px; height: 62px; float: right; overflow: hidden; display: block; background: transparent url("../img/ubuntu-logo.png") no-repeat 0 10px; width: 120px; height: 40px; margin-right: 10px; }
+#ab-main-nav ul { margin: 0; list-style: none; }
+#ab-main-nav li { margin: 0; padding: 0; float: left; height: 62px; border-right: 1px solid #DD4814; }
+#ab-main-nav li a { display: block; padding: 0 10px; }
+#ab-main-nav li a:hover,
+#ab-main-nav li a.on { background: transparent url("../img/header-bg-hover.png") repeat-x top; }
+#ab-sub-header { width: 980px; height: 35px; margin: 0 auto; overflow: hidden; background-color: #F7F7F7; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+#ab-sub-header .inner { margin: 0 20px; background: #FFF; padding: 0 5px 0 0; height: 30px; overflow: hidden; }
+#searchBar { float: right; }
+#ab-meta-nav ul { margin: 0; padding: 0; }
+#ab-meta-nav li { padding: 0 5px; list-style: none; float: left; border-right: 1px solid #F7F7F7; }
+#ab-meta-nav li a { line-height: 30px; display: block; }
+#ab-meta-nav li:hover { background-color: #EEE; }
+#ab-meta-nav .user-info a { display: inline; }
+#ab-meta-nav .user-info .user-micro-info-karma-label,
+#ab-meta-nav .user-info .user-micro-info.badges { display: none; }
+#container { width: 940px; margin: 0 auto; padding: 10px 20px 20px; overflow: hidden; background-color: #F7F7F7; border-left: 1px solid #CCC; border-right: 1px solid #CCC; min-height: 600px; }
+#content { width: 670px; padding: 0; overflow: hidden; margin-right: 10px; }
+#sidebar { float: right; clear: right; width: 250px; margin: 0; background-color: #F7F7F7; }
+#sidebar .inner { padding: 10px 10px; overflow: hidden; background: #FFF; }
+#sidebar input { max-width: 150px; }
+
+#content .tabBar { background: #FFF; float: right; height: 25px; margin:0 0 20px; padding: 0; overflow: hidden; }
+#content .tabBar .tabsC { float: left; }
+#content .tabBar .tabsA { float: left; }
+#content #sort_tabs { border-left: 1px solid #CCC; }
+#content .evenMore { background: #FFF; margin: 10px 0; clear: both; }
+
+#content .user-content { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
+#content .user-info-table { width: 100%; }
+#content .user-info-table td { padding: 5px; }
+#content .user-info-table .user-profile-tool-links { white-space: nowrap; padding: 0; }
+#content .user-info-table .avatar { width: 140px; }
+#content .user-info-table .user-details ul { list-style: none; margin-left: 0px; }
+
+#askform { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
+#askform #id_title,
+#askform #id_tags,
+#askform #editor,
+#askform .wmd-panel { width: 95%; padding: 2px 3px; }
+#askform .wmd-preview { width: 95%; overflow: hidden; background: #EEE; border: 1px dotted #CCC; margin: 10px 0; padding: 5px; }
+
+#question-list { clear: both; margin: 0 0 10px; }
+
+#ground { padding: 20px 0; width: 100%; background: #EEECEA url("../img/footer-bg.png") repeat-x top; }
+#ground .inner { width: 940px; margin: 0 auto; }
+#licenseLogo { float: right; }
+
+/*
+CSS3
+*/
+#ab-main-nav li a { text-shadow: #333 1px 1px 1px; }
+#ab-sub-header .inner,
+#content .tabBar,
+#sidebar .inner,
+#content .evenMore,
+#askform,
+#content .user-content { -webkit-box-shadow: 0px 1px 1px #CCC; -moz-box-shadow:0 1px 1px #CCC; box-shadow: 0px 1px 1px #CCC; }
+
+
+/*
+Addons
+*/
+input[type="text"], textarea { border: 2px solid #CCC; border-right: 1px solid #DDD; border-bottom: 1px solid #DDD; padding: 1px 3px; }
+
+/*
+Fancyness
+    Buttons from http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba
+*/
+.awesome,
+.awesome:visited {
+    background-color: #222; 
+    display: inline-block; 
+    padding: 5px; 
+    text-decoration: none;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 5px;
+}
+
+.awesome:hover { background-color: #111; color: #fff; text-decoration: none; background-color: #d45500; }
+.awesome:active { top: 1px; }
+.awesome,
+.awesome:visited { color: #fff; background-color: #ff5c00; }

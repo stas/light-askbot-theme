@@ -1,0 +1,28 @@
+<ul>
+    {% if request.user.is_authenticated() %}
+        <li class="user-info">
+            <a class="user-info-link" href="{{ request.user.get_absolute_url() }}">{{ request.user.username }}</a>
+            {{ macros.inbox_link(request.user) }}
+            {{ macros.moderation_items_link(request.user, moderation_items) }}
+            {{ macros.user_long_score_and_badge_summary(user) }}
+        </li>
+        <li>
+            <a href="{% url logout %}">{% trans %}logout{% endtrans %}</a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{% url user_signin %}">{% trans %}login{% endtrans %}</a>
+        </li>
+    {% endif %}
+        <li>
+            <a href="{% url about %}">{% trans %}about{% endtrans %}</a>
+        </li>
+        <li>
+            <a href="{% url faq %}">{% trans %}faq{% endtrans %}</a>
+        </li>
+    {% if request.user.is_authenticated() and request.user.is_administrator() %}
+        <li>
+            <a href="{% url site_settings %}">{% trans %}settings{% endtrans %}</a>
+        </li>
+    {% endif %}
+</ul>

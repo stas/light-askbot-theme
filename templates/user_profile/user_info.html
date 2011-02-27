@@ -1,0 +1,98 @@
+<!-- user_info.html -->
+{% import "macros.html" as macros %}
+<table class="user-info-table">
+    <tr>
+        <td class="avatar">
+            {{ macros.gravatar(view_user, 128) }}
+            {% if request.user == view_user %}
+                <p class="avatar-link"><a 
+                    {% if support_custom_avatars %}
+                        href="{% url avatar_change %}"
+                    {% else %}
+                        href="{% url faq %}#gravatar"
+                    {% endif %}
+                >{% trans %}change picture{% endtrans %}</a></p>
+                {% if support_custom_avatars %}
+                <p><a 
+                    href="{% url avatar_delete %}"
+                    >{% trans %}remove{% endtrans %}</a>
+                </p>
+                {% endif %}
+            {% endif %}
+            <div class="scoreNumber">{{view_user.reputation|intcomma}}</div>
+            <div class="scoreTitle">{% trans %}reputation{% endtrans %}</div>
+        </td>
+        <td class="user-details">
+            <div class="user-about">
+                {% if view_user.about %}
+                    {{view_user.about|linebreaks}}
+                {% endif %}
+            </div>
+            {% if request.user == view_user %}
+            <ul>
+                <li class="user-profile-tool-links">
+                    <a href="{% url edit_user view_user.id %}">
+                        {% trans %}update profile{% endtrans %}
+                    </a>
+                    {% if request.user == view_user %}
+                        | <a href="{% url user_signin %}?next={% url user_signin %}">
+                            {% trans %}manage login methods{% endtrans %}
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>  
+            {% endif %}
+            <ul>
+                <li>
+                    <h3>{{user_status_for_display}}</h3>
+                </li>
+            </ul>
+            {% if view_user.real_name %}
+            <ul>
+                <li class="label">{% trans %}real name{% endtrans %}</li>
+                <li><strong>{{view_user.real_name}}</strong></li>
+            </ul>
+            {% endif %}
+            <ul>
+                <li class="label">{% trans %}member for{% endtrans %}</li>
+                <li><strong>{{ view_user.date_joined|diff_date }}</strong></li>
+            </ul>
+            {% if view_user.last_seen %}
+            <ul>
+                <li class="label">{% trans %}last seen{% endtrans %}</li>
+                <li><strong title="{{ view_user.last_seen }}">{{view_user.last_seen|diff_date}}</strong></li>
+            </ul>
+            {% endif %}
+            {% if view_user.website %}
+            <ul>
+                <li class="label">{% trans %}user website{% endtrans %}</li>
+                <li>{{ macros.user_website_link(view_user, max_display_length = 30) }}</li>
+            </ul>
+            {% endif  %}
+            {% if view_user.location or view_user.country %}
+            <ul>
+                <li class="label">{% trans %}location{% endtrans %}</li>
+                <li>{{ macros.user_full_location(view_user) }}</li>
+            </ul>
+            {% endif %}
+            {% if view_user.date_of_birth%}
+            <ul>
+            <!--todo  - redo this with whole sentence translation -->
+                <li class="label">{% trans %}age{% endtrans %}</li>
+                <li>{{view_user.date_of_birth|get_age}} {% trans %}age unit{% endtrans %}</li>
+            </ul>
+            {% endif %}
+            {#
+    <!--
+            {% if votes_today_left %}
+            <tr>
+                <td>{% trans "todays unused votes" %}</td>
+                <td><strong class="darkred">{{ votes_today_left }}</strong> {% trans "votes left" %}</td>
+            </tr>
+            {% endif %}
+    -->
+            #}
+        </td>
+    </tr>
+</table>
+<!-- end user_info.html -->
