@@ -13,10 +13,10 @@
 {% block content %}
 <h1><a href="{{ question.get_absolute_url() }}">{{ question.get_question_title() }}</a></h1>
 <div id="askform">
-    <table style="width:100%;" id="question-table" {% if question.deleted %}class="deleted"{%endif%}>
-        <tr>
-            <td style="width:30px;vertical-align:top">
-                <div class="vote-buttons">
+    <div id="question-entry" {% if question.deleted %}class="deleted"{%endif%}>
+        <ul>
+            <li class="vote-buttons">
+                <div>
                     {% if question_vote %}
                     <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
                         {% if question_vote.is_upvote() %}
@@ -72,9 +72,9 @@
                     <a class="fb-share" alt="{% trans %}Share this question on facebook{% endtrans %}"></a>
                     {% endif %}
                 </div>
-            </td>
-            <td>
-                <div class="question-body">
+            </li>
+            <li class="question-body">
+                <div class="question-content">
                     {{question.html}}
                 </div>
                 <ul id="question-tags" class="post-tags tags">
@@ -149,9 +149,9 @@
                         )
                 }}
                 <!--/div-->
-            </td>
-        </tr>
-    </table>
+            </li>
+        </ul>
+    </div>
     {% if question.closed %}
     <div class="question-status" style="margin-bottom:15px">
     <h3>{% trans close_reason=question.get_close_reason_display() %}The question has been closed for the following reason "{{ close_reason }}" by{% endtrans %} 
@@ -325,7 +325,7 @@
             <label>{% trans %}once you sign in you will be able to subscribe for any updates here{% endtrans %}</label>
         </p>
     {% endif %}
-    <div style="clear:both">
+    <div class="clearfix">
     </div>
     {% if not question.closed %}
         <div style="padding:10px 0 0 0;">

@@ -12,6 +12,8 @@ Layout
 
 body { background: transparent url("../img/dotted-bg.png") top; }
 .notify { height: 20px; margin: 0 auto; width: 980px; background: #FFF; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+.notify p { display: inline; }
+#close-notify { float: right; margin-right: 5px; cursor: pointer; }
 #ab-header { width: 980px; height: 62px; margin: 0 auto; overflow: hidden; background: #DD4814 url("../img/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
 #ab-logo { width: 130px; height: 62px; float: right; overflow: hidden; display: block; background: transparent url("../img/ubuntu-logo.png") no-repeat 0 10px; width: 120px; height: 40px; margin-right: 10px; }
 #ab-main-nav ul { margin: 0; list-style: none; }
@@ -28,7 +30,8 @@ body { background: transparent url("../img/dotted-bg.png") top; }
 #ab-meta-nav li:hover { background-color: #EEE; }
 #ab-meta-nav .user-info a { display: inline; }
 #ab-meta-nav .user-info .user-micro-info-karma-label,
-#ab-meta-nav .user-info .user-micro-info.badges { display: none; }
+a#ab-responses,
+#ab-meta-nav .user-info .user-micro-info.badges { display: none !important; }
 #container { width: 940px; margin: 0 auto; padding: 10px 20px 20px; overflow: hidden; background-color: #F7F7F7; border-left: 1px solid #CCC; border-right: 1px solid #CCC; min-height: 600px; }
 #content { width: 670px; padding: 0; overflow: hidden; margin-right: 10px; }
 #sidebar { float: right; clear: right; width: 250px; margin: 0; background-color: #F7F7F7; }
@@ -39,7 +42,8 @@ body { background: transparent url("../img/dotted-bg.png") top; }
 #content .tabBar .tabsC { float: left; }
 #content .tabBar .tabsA { float: left; }
 #content #sort_tabs { border-left: 1px solid #CCC; }
-#content .evenMore { background: #FFF; margin: 10px 0; clear: both; }
+#content .evenMore,
+#content .search-tips { background: #FFF; margin: 10px 0; padding: 2px 0; clear: both; }
 
 #content .user-content { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
 #content .user-info-table { width: 100%; }
@@ -48,13 +52,23 @@ body { background: transparent url("../img/dotted-bg.png") top; }
 #content .user-info-table .avatar { width: 140px; }
 #content .user-info-table .user-details ul { list-style: none; margin-left: 0px; }
 
-#askform { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
-#askform #id_title,
-#askform #id_tags,
-#askform #editor,
-#askform .wmd-panel { width: 95%; padding: 2px 3px; }
-#askform .wmd-preview { width: 95%; overflow: hidden; background: #EEE; border: 1px dotted #CCC; margin: 10px 0; padding: 5px; }
+#askform,
+#fmedit { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
+#id_title,
+#id_tags,
+#editor,
+.wmd-panel { width: 95%; padding: 2px 3px; }
+.wmd-preview { width: 95%; overflow: hidden; background: #EEE; border: 1px dotted #CCC; margin: 10px 0; padding: 5px; }
 
+#question-entry ul { list-style: none; margin: 0; padding: 0; }
+#question-entry .vote-buttons { float: right; }
+#question-entry .question-img-favorite { display: block; }
+#question-entry .question-content { border-bottom: 3px dotted #EEE; }
+#question-tags { list-style: none; margin: 0; padding: 0; }
+#question-tags li { float: left; padding-left: 5px; }
+#question-controls { clear: both; }
+
+#content .search-result-summary { clear: both; }
 #question-list { clear: both; margin: 0 0 10px; }
 
 #ground { padding: 20px 0; width: 100%; background: #EEECEA url("../img/footer-bg.png") repeat-x top; }
@@ -70,7 +84,9 @@ CSS3
 #sidebar .inner,
 #content .evenMore,
 #askform,
-#content .user-content { -webkit-box-shadow: 0px 1px 1px #CCC; -moz-box-shadow:0 1px 1px #CCC; box-shadow: 0px 1px 1px #CCC; }
+#fmedit,
+#content .user-content,
+#content .search-tips { -webkit-box-shadow: 0px 1px 1px #CCC; -moz-box-shadow:0 1px 1px #CCC; box-shadow: 0px 1px 1px #CCC; }
 
 
 /*

@@ -11,7 +11,7 @@ of times each type of badge has been awarded. Give us feedback at {{feedback_faq
 </p>
 <div id="medalList">
     {% for badge in badges %}
-    <div style="clear:both;line-height:30px">
+    <div class="clearfix">
         <div style="float:left;min-width:30px;text-align:right;height:30px">
         {% for a in mybadges %}
             {% if a.badge_id == badge.id %}
