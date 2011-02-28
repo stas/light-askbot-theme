@@ -13,7 +13,7 @@
 {% block content %}
 <h1><a href="{{ question.get_absolute_url() }}">{{ question.get_question_title() }}</a></h1>
 <div id="askform">
-    <div id="question-entry" {% if question.deleted %}class="deleted"{%endif%}>
+    <div id="question-table" class="question-entry" {% if question.deleted %}class="deleted"{%endif%}>
         <ul>
             <li class="vote-buttons">
                 <div>
@@ -88,37 +88,41 @@
                     {% endfor %}
                 </ul>
                 <div id="question-controls" class="post-controls">
-                    {% set pipe=joiner('<span class="sep">|</span>') %}
-                    {% if request.user|can_edit_post(question) %}{{ pipe() }}
-                        <a href="{% url edit_question question.id %}">{% trans %}edit{% endtrans %}</a>
-                    {% endif %}
-                    {% if request.user|can_retag_question(question) %}{{ pipe() }}
-                        <a id="retag" href="{% url retag_question question.id %}">{% trans %}retag{% endtrans %}</a>
-                        <script type="text/javascript">
-                            var retagUrl = "{% url retag_question question.id %}";
-                        </script>
-                    {% endif %}
-                    {% if question.closed %}
-                        {% if request.user|can_reopen_question(question) %}{{ pipe() }}
-                        <a href="{% url reopen question.id %}">{% trans %}reopen{% endtrans %}</a>
+                    <ul>
+                        {% if request.user|can_edit_post(question) %}
+                            <li><a href="{% url edit_question question.id %}">{% trans %}edit{% endtrans %}</a></li>
                         {% endif %}
-                    {% else %}
-                        {% if request.user|can_close_question(question) %}{{ pipe() }}
-                        <a href="{% url close question.id %}">{% trans %}close{% endtrans %}</a>
+                        {% if request.user|can_retag_question(question) %}
+                            <li><a id="retag" href="{% url retag_question question.id %}">{% trans %}retag{% endtrans %}</a>
+                                <script type="text/javascript">
+                                    var retagUrl = "{% url retag_question question.id %}";
+                                </script>
+                            </li>
                         {% endif %}
-                    {% endif %}
-                    {% if request.user|can_flag_offensive(question) %}{{ pipe() }}
-                    <span id="question-offensive-flag-{{ question.id }}" class="offensive-flag" 
-                        title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
-                        <a>{% trans %}flag offensive{% endtrans %}</a>
-                        {% if request.user|can_see_offensive_flags(question) %}
-                            <span class="darkred">{% if question.offensive_flag_count > 0 %}({{ question.offensive_flag_count }}){% endif %}</span>
+                        {% if question.closed %}
+                            {% if request.user|can_reopen_question(question) %}
+                            <li><a href="{% url reopen question.id %}">{% trans %}reopen{% endtrans %}</a></li>
+                            {% endif %}
+                        {% else %}
+                            {% if request.user|can_close_question(question) %}
+                            <li><a href="{% url close question.id %}">{% trans %}close{% endtrans %}</a></li>
+                            {% endif %}
                         {% endif %}
-                    </span>
-                    {% endif %}
-                    {% if request.user|can_delete_post(question) %}{{ pipe() }}
-                        <a id="question-delete-link-{{question.id}}">{% if question.deleted %}{% trans %}undelete{% endtrans %}{% else %}{% trans %}delete{% endtrans %}{% endif %}</a>
-                    {% endif %}
+                        {% if request.user|can_flag_offensive(question) %}
+                        <li>
+                            <span id="question-offensive-flag-{{ question.id }}" class="offensive-flag" 
+                            title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                            <a>{% trans %}flag offensive{% endtrans %}</a>
+                            {% if request.user|can_see_offensive_flags(question) %}
+                                <span class="darkred">{% if question.offensive_flag_count > 0 %}({{ question.offensive_flag_count }}){% endif %}</span>
+                            {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                        {% if request.user|can_delete_post(question) %}
+                            <li><a id="question-delete-link-{{question.id}}">{% if question.deleted %}{% trans %}undelete{% endtrans %}{% else %}{% trans %}delete{% endtrans %}{% endif %}</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
                 <div class="post-update-info-container">
                         {{ 
@@ -137,6 +141,7 @@
                                             settings.MIN_REP_TO_EDIT_WIKI,
                                         )
                         }}
+                        <div class="clearfix"></div>
                 </div>
                 {{
                     macros.post_comments_widget(
@@ -153,7 +158,7 @@
         </ul>
     </div>
     {% if question.closed %}
-    <div class="question-status" style="margin-bottom:15px">
+    <div class="question-status">
     <h3>{% trans close_reason=question.get_close_reason_display() %}The question has been closed for the following reason "{{ close_reason }}" by{% endtrans %} 
     <a href="{{ question.closed_by.get_profile_url() }}">{{ question.closed_by.username }}</a> 
     {% trans closed_at=question.closed_at %}close date {{closed_at}}{% endtrans %}</h3>
@@ -303,7 +308,7 @@
     {% endif %}
 <form id="fmanswer" action="{% url answer question.id %}" method="post">
     {% if request.user.is_authenticated() %}
-        <p style="padding-left:3px">
+        <p class="email-notify-label">
         {{ answer.email_notify }} 
         <label for="question-subscribe-updates">
         {% set email_feed_frequency = request.user.get_q_sel_email_feed_frequency() %}

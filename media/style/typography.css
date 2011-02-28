@@ -52,8 +52,24 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #id_tags { font-size: 140%; }
 #askform .title-desc,
 #fmedit .title-desc { font-style: italic; color: #777; }
-#question-entry .vote-buttons { text-align: center; font-weight: bolder; font-size: 120%; }
-
+#content h2 { font-size: 130%; color: #333; }
+#question-controls li a { text-transform: uppercase; text-decoration: none; cursor: pointer; font-size: 80%; color: #777; }
+#question-controls li a:hover { background: #772953; color: #FFF; }
+#question-tags li a { text-transform: uppercase; text-decoration: none; color: #772953; }
+#question-tags li a:hover { color: #DD4814; }
+.question-entry .vote-buttons { text-align: center; font-weight: bolder; font-size: 120%; }
+.question-entry .post-update-info-container { text-align: right; }
+.question-entry .post-update-info p { line-height: 110%; }
+.question-entry .post-update-info .since { font-style: italic; color: #777; font-size: 90%; }
+.question-entry .post-update-info .www-link { color: #777; font-size: 90%; }
+.question-entry .post-update-info .profile-link a { font-weight: bolder; text-decoration: none; font-size: 130%; }
+.comments a.button { text-transform: uppercase; }
+#fmanswer .email-notify-label,
+.post-comments .counter,
+.content .comment .age,
+#fmanswer .message { font-style: italic; color: #777; font-size: 90%; }
+.post-comments .counter { color: #777 !important; }
+.content .comment .author { font-weight: bolder; text-decoration: none; color: #333; }
 
 /*
 Ubuntu Font
@@ -67,7 +83,13 @@ Ubuntu Font
 #content .user-content .scoreTitle,
 #content .user-details ul li.label,
 #content .search-tips,
-#question-entry .vote-buttons,
+#question-tags li,
+#question-controls li,
+.question-entry .vote-buttons,
+.question-entry .post-update-info .profile-link,
+.question-entry .post-update-info .badge,
+.question-entry .post-update-info .www-link,
+.content .comment .author,
 .notify,
 .awesome,
 h1,

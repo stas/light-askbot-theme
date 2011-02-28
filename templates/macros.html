@@ -141,7 +141,7 @@
 {#todo: rename this to avatar #}
 {%- macro gravatar(user, size) -%}
 {% spaceless %}
-<a style="text-decoration:none"
+<a
     href="{{ user.get_absolute_url() }}"
 ><img class="gravatar" 
     width="{{size}}" height="{{size}}"
@@ -172,9 +172,9 @@
         <p>{{ user.get_anonymous_name() }}</p>
     {% else %}
         {{ gravatar(user, 32) }}
-        {{ user.get_profile_link()}}{{ user_country_flag(user) }}{% if not user.website %}<br/>{% endif %}
-        {{ user_score_and_badge_summary(user) }}<br/>
-        {{ user_website_link(user) }}
+        <p class="profile-link">{{ user.get_profile_link()}}{{ user_country_flag(user) }}{% if not user.website %}{% endif %}</p>
+        <p class="badge">{{ user_score_and_badge_summary(user) }}</p>
+        <p class="www-link">{{ user_website_link(user) }}</p>
     {% endif %}
 {%- endmacro -%}
 
@@ -182,9 +182,9 @@
 {# there is a whole bunch of trickery here, probably indicative of 
 poor design of the data or methods on data objects #}
 {% if contributor_type=="original_author" %}
-    <div class='post-update-info'>
+    <div class='post-update-info author'>
     {% if is_wiki %}
-        <p>
+        <p class="since">
            {%- if post.__class__.__name__ == 'Question' -%}
                 {%- trans %}asked{% endtrans %}
            {% elif post.__class__.__name__ == 'Answer' %}
@@ -194,15 +194,14 @@ poor design of the data or methods on data objects #}
            {% endif %}
            <strong>{{post.added_at|diff_date}}</strong>
         </p>
-        <img 
+        <img class="wiki-icon"
             src="{{'/images/wiki.png'|media}}"
             alt="{% trans %}this post is marked as community wiki{% endtrans %}"
-            style="float:left"
         />
         <p class="tip">{% trans %}This post is a wiki.
         Anyone with karma &gt;{{wiki_min_rep}} is welcome to improve it.{% endtrans %}</p>
     {% else %}
-        <p style="line-height:12px;">
+        <p class="since">
             {# todo: access to class names needs to be removed here #}
             {% if post.__class__.__name__=="Question" %}
                 {% trans %}asked{% endtrans %}
@@ -231,8 +230,8 @@ poor design of the data or methods on data objects #}
         {% set update_author = post.author %}
     {% endif %}
     {% if last_edited_at %}
-    <div class='post-update-info'>
-        <p style="line-height:12px;">
+    <div class='post-update-info updater'>
+        <p class="since">
             <a 
         {% if post.__class__.__name__ == 'Question' %}
             href="{% url question_revisions post.id %}"

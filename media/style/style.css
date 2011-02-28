@@ -60,13 +60,27 @@ a#ab-responses,
 .wmd-panel { width: 95%; padding: 2px 3px; }
 .wmd-preview { width: 95%; overflow: hidden; background: #EEE; border: 1px dotted #CCC; margin: 10px 0; padding: 5px; }
 
-#question-entry ul { list-style: none; margin: 0; padding: 0; }
-#question-entry .vote-buttons { float: right; }
-#question-entry .question-img-favorite { display: block; }
-#question-entry .question-content { border-bottom: 3px dotted #EEE; }
+.question-entry ul { list-style: none; margin: 0; padding: 0; }
+.question-entry .vote-buttons { float: right; }
+.question-entry .question-img-favorite { display: block; }
+.question-entry .question-content { margin-bottom: 20px; }
 #question-tags { list-style: none; margin: 0; padding: 0; }
-#question-tags li { float: left; padding-left: 5px; }
-#question-controls { clear: both; }
+#question-tags li { float: left; padding-left: 10px; padding-right: 10px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px;}
+#question-controls ul { clear: both; float: right; background: #EEE; margin: 0 0 5px; padding: 0; overflow: hidden; }
+#question-controls li { float: left; padding: 0; }
+#question-controls li a { display: block; padding: 0 3px; }
+.question-entry .post-update-info-container { clear: both; margin: 10px 0; }
+.question-entry .post-update-info-container .post-update-info { float: right; padding: 5px 10px; }
+.question-entry .post-update-info-container .author { background: #EEE; }
+.question-entry .post-update-info-container .updater { margin-right: 10px; }
+.question-entry .post-update-info .gravatar { float: right; margin-left: 5px; }
+.question-entry .post-update-info .profile-link {  }
+.post-comments { clear: both; margin-bottom: 10px; }
+.post-comments #edit-comment-form { width: 95%; }
+.post-comments .counter { float: right; margin-right: 5%; }
+.question-entry .comments { clear: both; border-top: 1px dotted #333; padding: 5px 10px; margin-bottom: 10px; }
+.content .comment { display: block; border-bottom: 1px dotted #CCC; }
+.content .comment .edit { float: right; margin:0 !important; padding: 3px !important; }
 
 #content .search-result-summary { clear: both; }
 #question-list { clear: both; margin: 0 0 10px; }
@@ -74,6 +88,8 @@ a#ab-responses,
 #ground { padding: 20px 0; width: 100%; background: #EEECEA url("../img/footer-bg.png") repeat-x top; }
 #ground .inner { width: 940px; margin: 0 auto; }
 #licenseLogo { float: right; }
+
+.clearfix { clear: both; height: 1px; font-size: 1px; }
 
 /*
 CSS3
@@ -86,6 +102,8 @@ CSS3
 #askform,
 #fmedit,
 #content .user-content,
+.question-entry .post-update-info-container .author,
+#question-controls ul,
 #content .search-tips { -webkit-box-shadow: 0px 1px 1px #CCC; -moz-box-shadow:0 1px 1px #CCC; box-shadow: 0px 1px 1px #CCC; }
 
 
