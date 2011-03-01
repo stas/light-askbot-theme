@@ -77,6 +77,7 @@
                 <div class="question-content">
                     {{question.html}}
                 </div>
+                <div class="clearfix question"></div>
                 <ul id="question-tags" class="post-tags tags">
                     {% for tag in question.get_tag_names() %}
                         {{ macros.tag_widget(

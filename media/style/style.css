@@ -11,7 +11,7 @@ Layout
 */
 
 body { background: transparent url("../img/dotted-bg.png") top; }
-.notify { height: 20px; margin: 0 auto; width: 980px; background: #FFF; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+.notify { height: 20px; margin: 0 auto; width: 980px; background: #772953; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
 .notify p { display: inline; }
 #close-notify { float: right; margin-right: 5px; cursor: pointer; }
 #ab-header { width: 980px; height: 62px; margin: 0 auto; overflow: hidden; background: #DD4814 url("../img/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
@@ -66,18 +66,18 @@ a#ab-responses,
 .question-entry .vote-buttons { float: left; }
 .question-entry .question-body { margin-left: 40px; }
 .question-entry .question-img-favorite { display: block; }
-.question-entry .question-content { float: left; }
 .question-entry .question-content img { max-width: 99%; }
+.question-entry .question-body .clearfix.question { clear: right; }
 
 #question-tags { list-style: none; margin: 0; padding: 0; }
 #question-tags li { float: left; padding-left: 10px; padding-right: 10px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px;}
 #question-controls ul,
-.answer-controls ul { clear: both; float: right; background: #EEE; margin: 0 0 5px; padding: 0; overflow: hidden; }
+.answer-controls ul { clear: right; float: right; background: #EEE; margin: 0 0 5px; padding: 0; overflow: hidden; }
 #question-controls li,
 .answer-controls li { float: left; padding: 0; }
 #question-controls li a,
 .answer-controls li a { padding: 0 3px; }
-#content .post-update-info-container { clear: both; margin: 10px 0; }
+#content .post-update-info-container { clear: right; margin: 10px 0; }
 #content .post-update-info-container .post-update-info { float: right; padding: 5px 10px; }
 #content .post-update-info-container .author { background: #EEE; }
 #content .post-update-info-container .updater { margin-right: 10px; }
