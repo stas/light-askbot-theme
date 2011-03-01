@@ -74,7 +74,7 @@ a#ab-responses,
 #question-controls ul,
 .answer-controls ul { clear: right; float: right; background: #EEE; margin: 0 0 5px; padding: 0; overflow: hidden; }
 #question-controls li,
-.answer-controls li { float: left; padding: 0; }
+.answer-controls li { float: left; padding: 0; display: block; }
 #question-controls li a,
 .answer-controls li a { padding: 0 3px; }
 #content .post-update-info-container { clear: right; margin: 10px 0; }
