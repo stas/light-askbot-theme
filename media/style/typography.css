@@ -15,8 +15,8 @@ a:hover { color: #DD4814; }
 a:visited { color: #777777; }
 
 hr { border: none; border-bottom: 1px solid #CCC; }
-ul { list-style: disc; margin-left: 20px; padding-left: 0px; margin-bottom: 1em; }
-ol { list-style: decimal; margin-left: 30px; margin-bottom: 1em; padding-left: 0px; }
+ul { list-style: disc inside; margin-left: 20px; padding-left: 0px; margin-bottom: 1em; }
+ol { list-style: decimal inside; margin-left: 30px; margin-bottom: 1em; padding-left: 0px; }
 pre { margin-bottom: 10px; overflow: auto; background-color: #F5F5F5; padding-left: 5px; padding-top: 5px; width: 99%; padding-bottom: 20px ! ie7; }
 pre,
 code { font-family: Consolas, Monaco, Liberation Mono, Lucida Console, Monospace; font-size: 100%; }
@@ -33,6 +33,7 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #sidebar h2,
 #sidebar h3 { color: #DD4814; font-size: 130%; border-bottom: 1px dotted #DD4814; }
 #content .tabBar { text-transform: uppercase; font-size: 80%; }
+#content .tabBar h2 { font-size: 100%; line-height: 25px; color: #DD4814; }
 #content .tabBar span { display: none; }
 #content .tabBar a { color: #333; text-decoration: none; line-height: 25px; padding: 0 5px; display: block; float: left; }
 #content .tabBar a:hover,
@@ -53,16 +54,18 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #askform .title-desc,
 #fmedit .title-desc { font-style: italic; color: #777; }
 #content h2 { font-size: 130%; color: #333; }
-#question-controls li a { text-transform: uppercase; text-decoration: none; cursor: pointer; font-size: 80%; color: #777; }
-#question-controls li a:hover { background: #772953; color: #FFF; }
+#question-controls li a,
+.answer-controls li a { text-transform: uppercase; text-decoration: none; cursor: pointer; font-size: 80%; color: #777; }
+#question-controls li a:hover,
+.answer-controls li a:hover { background: #772953; color: #FFF; }
 #question-tags li a { text-transform: uppercase; text-decoration: none; color: #772953; }
 #question-tags li a:hover { color: #DD4814; }
 .question-entry .vote-buttons { text-align: center; font-weight: bolder; font-size: 120%; }
-.question-entry .post-update-info-container { text-align: right; }
-.question-entry .post-update-info p { line-height: 110%; }
-.question-entry .post-update-info .since { font-style: italic; color: #777; font-size: 90%; }
-.question-entry .post-update-info .www-link { color: #777; font-size: 90%; }
-.question-entry .post-update-info .profile-link a { font-weight: bolder; text-decoration: none; font-size: 130%; }
+#content .post-update-info-container { text-align: right; }
+#content .post-update-info p { line-height: 110%; }
+#content .post-update-info .since { font-style: italic; color: #777; font-size: 90%; }
+#content .post-update-info .www-link { color: #777; font-size: 90%; }
+#content .post-update-info .profile-link a { font-weight: bolder; text-decoration: none; font-size: 130%; }
 .comments a.button { text-transform: uppercase; }
 #fmanswer .email-notify-label,
 .post-comments .counter,
@@ -70,6 +73,7 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #fmanswer .message { font-style: italic; color: #777; font-size: 90%; }
 .post-comments .counter { color: #777 !important; }
 .content .comment .author { font-weight: bolder; text-decoration: none; color: #333; }
+.answer-entry .vote-buttons { text-align: center; font-weight: bolder; }
 
 /*
 Ubuntu Font
@@ -85,11 +89,13 @@ Ubuntu Font
 #content .search-tips,
 #question-tags li,
 #question-controls li,
+.answer-controls li,
 .question-entry .vote-buttons,
-.question-entry .post-update-info .profile-link,
-.question-entry .post-update-info .badge,
-.question-entry .post-update-info .www-link,
+#content .post-update-info .profile-link,
+#content .post-update-info .badge,
+#content .post-update-info .www-link,
 .content .comment .author,
+.answer-entry .vote-buttons,
 .notify,
 .awesome,
 h1,

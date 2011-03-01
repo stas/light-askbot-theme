@@ -168,9 +168,9 @@
         <div class="tabBar">
             <h2 id="sort-top">
             {% trans counter=answers|length %}
-            {{counter}} Answer:
+            {{counter}} Answer
             {% pluralize %}
-            {{counter}} Answers:
+            {{counter}} Answers
             {% endtrans %}
             </h2>
             <div class="tabsA">
@@ -187,10 +187,10 @@
         {% for answer in answers %}
             <a name="{{ answer.id }}"></a>
             <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% if answer.author_id==question.author_id %} answered-by-owner{% endif %} {% if answer.deleted %}deleted{% endif %}">
-                <table style="width:100%;" class="answer-table">
-                    <tr>
-                        <td style="width:30px;vertical-align:top">
-                            <div class="vote-buttons">
+                <div class="answer-table answer-entry">
+                    <ul>
+                        <li class="vote-buttons">
+                            <div>
                                 <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" 
                                     {% if user_answer_votes[answer.id] == 1 %}
                                         src="{{"/images/vote-arrow-up-on.png"|media}}" 
@@ -232,41 +232,46 @@
                                     {% endif %}
                                 {% endif %}
                             </div>
-                        </td>
-                        <td>
-                            <div class="item-right">
+                        </li>
+                        <li class="item-right answer-content">
+                            <div>
                                 <div class="answer-body">
                                     {{ answer.html }}
                                 </div>
                                 <div class="answer-controls post-controls">
-                                    {% set pipe=joiner('<span class="sep">|</span>') %}
-                                    <span class="linksopt">{{ pipe() }}
-                                        <a 
-                                            href="{{ answer.get_absolute_url() }}" 
-                                            title="{% trans %}answer permanent link{% endtrans %}">
-                                            {% trans %}permanent link{% endtrans %}
-                                        </a>
-                                    </span>
-                                    {% if request.user|can_edit_post(answer) %}{{ pipe() }}
-                                    <span class="action-link"><a href="{% url edit_answer answer.id %}">{% trans %}edit{% endtrans %}</a></span>
-                                    {% endif %}
-                                    {% if request.user|can_flag_offensive(answer) %}{{ pipe() }}
-                                    <span id="answer-offensive-flag-{{ answer.id }}" class="offensive-flag" 
-                                        title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
-                                        <a>{% trans %}flag offensive{% endtrans %}</a>
-                                        {% if request.user|can_see_offensive_flags(answer) %}
-                                            <span class="darkred">{% if answer.offensive_flag_count > 0 %}({{ answer.offensive_flag_count }}){% endif %}</span>
+                                    <ul>
+                                        <li class="linksopt">
+                                            <a 
+                                                href="{{ answer.get_absolute_url() }}" 
+                                                title="{% trans %}answer permanent link{% endtrans %}">
+                                                {% trans %}permanent link{% endtrans %}
+                                            </a>
+                                        </li>
+                                        {% if request.user|can_edit_post(answer) %}
+                                        <li class="action-link"><a href="{% url edit_answer answer.id %}">{% trans %}edit{% endtrans %}</a></span>
                                         {% endif %}
-                                    </span>
-                                    {% endif %}
-                                    {% if request.user|can_delete_post(answer) %}{{ pipe() }}
-                                        {% spaceless %}
-                                        <span class="action-link">
-                                            <a id="answer-delete-link-{{answer.id}}">
-                                            {% if answer.deleted %}{% trans %}undelete{% endtrans %}{% else %}{% trans %}delete{% endtrans %}{% endif %}</a>
-                                        </span>
-                                        {% endspaceless %}
-                                    {% endif %}
+                                        {% if request.user|can_flag_offensive(answer) %}
+                                        <li>
+                                            <span id="answer-offensive-flag-{{ answer.id }}" class="offensive-flag" 
+                                                title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                                                <a>{% trans %}flag offensive{% endtrans %}</a>
+                                                {% if request.user|can_see_offensive_flags(answer) %}
+                                                    <span class="darkred">{% if answer.offensive_flag_count > 0 %}({{ answer.offensive_flag_count }}){% endif %}</span>
+                                                {% endif %}
+                                            </span>
+                                        </li>
+                                        {% endif %}
+                                        {% if request.user|can_delete_post(answer) %}
+                                            {% spaceless %}
+                                            <li>
+                                                <span class="action-link">
+                                                    <a id="answer-delete-link-{{answer.id}}">
+                                                    {% if answer.deleted %}{% trans %}undelete{% endtrans %}{% else %}{% trans %}delete{% endtrans %}{% endif %}</a>
+                                                </span>
+                                            </li>
+                                            {% endspaceless %}
+                                        {% endif %}
+                                    </ul>
                                 </div>
                                 <div class="post-update-info-container">
                                         {{
@@ -297,9 +302,9 @@
                                         )
                                 }}
                             </div>
-                        </td>
-                    </tr>
-                </table>
+                        </li>
+                    </ul>
+                </div>
             </div>
         {% endfor %}
         <div class="paginator-container-left">

@@ -423,6 +423,7 @@ poor design of the data or methods on data objects #}
 {%- macro post_comments_widget(post=None, show_post = None, show_comment = None, comment_order_number = None, user=None, max_comments=None) -%}
     {% spaceless %}
     {% set widget_id = 'comments-for-' + post.post_type + '-' + post.id|string %}
+    <div class="clearfix"></div>
     <div class="comments" id="{{widget_id}}">
         <div class="content">
             {% if show_post == post and show_comment %}
