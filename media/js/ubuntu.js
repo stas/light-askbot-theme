@@ -18,6 +18,8 @@ jQuery('.question-entry pre').corner('round 5px keep;');
 jQuery('.question-entry .post-update-info-container .author').corner('round 5px keep;');
 jQuery('.answer-entry .post-update-info-container .author').corner('round 5px keep;');
 jQuery('.answer-controls ul').corner('round 5px keep;');
+jQuery('#question-list .short-summary').corner('round 5px keep;');
+jQuery('#question-list .short-summary .item-count').corner('round 25px keep;');
 
 
 /* Add some awesome buttons */

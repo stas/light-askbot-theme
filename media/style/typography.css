@@ -22,7 +22,7 @@ pre,
 code { font-family: Consolas, Monaco, Liberation Mono, Lucida Console, Monospace; font-size: 100%; }
 .notify { text-align: center; font-weight: bolder; color: #FFF; }
 .notify a { color: #FFF; text-decoration: underline; }
-#close-notify { line-height: 15px; font-size: 160%; color: #DD4814; }
+#close-notify { line-height: 15px; font-size: 160%; color: #DD4814; text-decoration: none; }
 blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px; background-color: #F5F5F5; }
 #ab-logo { padding-top: 35px; font-size: 90%; color: #FFF; text-decoration: none; }
 #ab-main-nav li a { line-height: 62px; color: #FFF; text-decoration: none; text-transform: capitalize; }
@@ -75,6 +75,25 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 .post-comments .counter { color: #777 !important; }
 .content .comment .author { font-weight: bolder; text-decoration: none; color: #333; }
 .answer-entry .vote-buttons { text-align: center; font-weight: bolder; }
+#question-list .short-summary .counts { text-align: center; }
+#question-list .short-summary .counts .item-count { font-weight: bolder; font-size: 140%; line-height: 40px; }
+#question-list .short-summary .counts .votes,
+#question-list .short-summary .counts .views { color: #777; }
+#question-list .short-summary h2 { font-size: 160%; margin-bottom: 0; line-height: 40px; }
+#question-list .short-summary .no-votes .item-count,
+#question-list .short-summary .no-answers .item-count,
+#question-list .short-summary .no-views .item-count { color: #FFF; background-color: #DD4814; width: 40px; display: block; margin: 0 auto; }
+#question-list .short-summary .some-answers .item-count { color: #772953; background-color: #EEE; width: 40px; display: block; margin: 0 auto; }
+#question-list .short-summary h2 a { text-decoration: none; }
+#question-list .short-summary .userinfo .relativetime { color: #777; font-size: 80%; }
+#question-list .short-summary .userinfo .user-link { color: #444; text-decoration: none; font-weight: bolder; }
+#question-list .short-summary .tags li a,
+#related-tags .tag-left a,
+#search-tags .tag-right { text-decoration: none; text-transform: uppercase; color: #444; }
+#question-list .short-summary .tags li a:hover,
+#related-tags .tag-left a:hover { color: #DD4814; }
+#content .rss-link .rss a { text-transform: uppercase; text-decoration: none; }
+#related-tags .tag-number { font-weight: bolder; }
 
 /*
 Ubuntu Font
@@ -97,7 +116,10 @@ Ubuntu Font
 #content .post-update-info .www-link,
 .content .comment .author,
 .answer-entry .vote-buttons,
+#question-list .short-summary .userinfo .user-link,
 .notify,
+#question-list .short-summary .counts,
+#related-tags .tag-number,
 .awesome,
 h1,
 h2,

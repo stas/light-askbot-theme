@@ -35,7 +35,8 @@ a#ab-responses,
 #container { width: 940px; margin: 0 auto; padding: 10px 20px 20px; overflow: hidden; background-color: #F7F7F7; border-left: 1px solid #CCC; border-right: 1px solid #CCC; min-height: 600px; }
 #content { width: 670px; padding: 0; overflow: hidden; margin-right: 10px; }
 #sidebar { float: right; clear: right; width: 250px; margin: 0; background-color: #F7F7F7; }
-#sidebar .inner { padding: 10px 10px; overflow: hidden; background: #FFF; }
+#sidebar .inner { padding: 10px; overflow: hidden; background: #FFF; margin: 0 1px; }
+#sidebar .meta { color: #777; margin-top: 10px; }
 #sidebar input { max-width: 150px; }
 
 #content .tabBar { background: #FFF; float: right; height: 25px; margin:0 0 20px; padding: 0; overflow: hidden; }
@@ -55,7 +56,7 @@ a#ab-responses,
 #askform .tabBar { background: #EEE; }
 
 #askform,
-#fmedit { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
+#fmedit { background: #FFF; padding: 10px; clear: both; margin: 0 1px 10px; }
 #id_title,
 #id_tags,
 #editor,
@@ -65,7 +66,7 @@ a#ab-responses,
 .question-entry ul { list-style: none; margin: 0; padding: 0; }
 .question-entry .vote-buttons { float: left; }
 .question-entry .question-body { margin-left: 40px; }
-.question-entry .question-img-favorite { display: block; }
+.question-entry .question-img-favorite { display: block; margin-top: 5px; }
 .question-entry .question-content img { max-width: 99%; }
 .question-entry .question-body .clearfix.question { clear: right; }
 
@@ -81,6 +82,7 @@ a#ab-responses,
 #content .post-update-info-container .post-update-info { float: right; padding: 5px 10px; }
 #content .post-update-info-container .author { background: #EEE; }
 #content .post-update-info-container .updater { margin-right: 10px; }
+#content .post-update-info { min-width: 100px; }
 #content .post-update-info .gravatar { float: right; margin-left: 5px; }
 .post-comments { clear: both; margin-bottom: 10px; }
 .post-comments #edit-comment-form { width: 95%; }
@@ -94,13 +96,32 @@ a#ab-responses,
 .answer-entry ul { padding: 0; list-style: none; clear: both; }
 .answer-controls ul { clear: none; }
 .answer-entry .vote-buttons { float: left; }
-.answer-entry .answer-img-accept { display:block; }
+.answer-entry .answer-img-accept { display:block; margin-top: 5px; }
 .answer-entry .answer-content { margin-left: 50px; }
 #content .answer-entry .post-update-info-container { clear: right; }
 #content .answered-by-owner { /* TODO: make it fancy */ }
 
-#content .search-result-summary { clear: both; }
-#question-list { clear: both; margin: 0 0 10px; }
+#content .rss-link p { padding: 0; margin: 0; margin-top: 5px; }
+#content .rss-link .rss a { padding-right: 15px; background: transparent url("../img/actions/rss.png") no-repeat 0 right; }
+
+#question-list { clear: both; margin: 10px 0; }
+#question-list .short-summary { background-color: #FFF; margin: 10px 1px; padding: 10px; }
+#question-list .short-summary .counts .votes,
+#question-list .short-summary .counts .answers,
+#question-list .short-summary .counts .views { display: block; float: left; margin-right: 5px; }
+#question-list .short-summary .counts .views { margin-right: 20px; }
+#question-list .short-summary .userinfo { float: right; }
+#question-list .short-summary .tags { list-style: none; }
+#question-list .short-summary .tags li { float: left; padding-left: 10px; padding-right: 10px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px; }
+
+#related-tags,
+#search-tags { list-style: none; margin: 0; padding: 0; }
+#search-tags { padding-bottom: 10px; }
+#related-tags .tag-left,
+#search-tags .tag-right { float: left; padding-right: 5px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px; }
+#related-tags .tag-left a,
+#search-tags .tag-right { padding-left: 10px; }
+#question-count { margin-bottom: 0; }
 
 #ground { padding: 20px 0; width: 100%; background: #EEECEA url("../img/footer-bg.png") repeat-x top; }
 #ground .inner { width: 940px; margin: 0 auto; }
@@ -121,6 +142,7 @@ CSS3
 #content .user-content,
 #content .post-update-info-container .author,
 #question-controls ul,
+#question-list .short-summary,
 .answer-controls ul,
 #content .search-tips { -webkit-box-shadow: 0px 1px 1px #CCC; -moz-box-shadow:0 1px 1px #CCC; box-shadow: 0px 1px 1px #CCC; }
 
