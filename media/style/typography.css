@@ -68,6 +68,7 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #content .post-update-info .tip { font-style: italic; color: #777; font-size: 80%; }
 #content .post-update-info .www-link { color: #777; font-size: 90%; }
 #content .post-update-info .profile-link a { font-weight: bolder; text-decoration: none; font-size: 130%; }
+#content.wide .profile-link { font-weight: bolder; text-decoration: none; }
 .comments a.button { text-transform: uppercase; }
 #fmanswer .email-notify-label,
 .post-comments .counter,
@@ -97,6 +98,7 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #related-tags .tag-number { font-weight: bolder; }
 #content.wide .tags-page ul.tags li a { text-decoration: none; text-transform: uppercase; color: #444; }
 #content.wide .tags-page ul.tags li span { font-weight: bolder; }
+#content.wide .badge .desc { color: #777; font-style: italic; }
 #content .paginator { text-align: center; }
 #content .paginator ul li a { color: #FFF; text-decoration: none; }
 #content .paginator ul li a:hover { color: #EEE; }
@@ -107,9 +109,12 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #sidebar .medal-desc { font-style: italic; color: #777; }
 
 /* BADGES!!! */
-.badge1 { color: #FBB829 !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
-.badge2 { color: #CCC !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
-.badge3 { color: #A7998B !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
+.badge1 { color: #FBB829 !important; }
+.badge2 { color: #CCC !important; }
+.badge3 { color: #A7998B !important; }
+.awesome .badge1 { float: left; font-size: 200% !important; line-height: 1px; padding-top: 3px; }
+.awesome .badge2 { float: left; font-size: 200% !important; line-height: 1px; padding-top: 3px; }
+.awesome .badge3 { float: left; font-size: 200% !important; line-height: 1px; padding-top: 3px; }
 
 
 /*
@@ -129,6 +134,7 @@ Ubuntu Font
 .answer-controls li,
 .question-entry .vote-buttons,
 #content .post-update-info .profile-link,
+#content.wide #award-list,
 #content .post-update-info .badge,
 #content .post-update-info .www-link,
 .content .comment .author,
@@ -141,6 +147,7 @@ Ubuntu Font
 #content.wide .userList ul li.name,
 #medalList ul li.badge strong,
 #sidebar .medal,
+#content.wide .awarded,
 .awesome,
 h1,
 h2,

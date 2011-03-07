@@ -38,4 +38,5 @@ jQuery('.comments a.button').addClass('awesome');
 jQuery('.content .comment .edit').addClass('awesome');
 jQuery('#content .paginator ul li').addClass('awesome');
 jQuery('#medalList ul li.badge a').addClass('awesome');
+jQuery('#content.wide .badge a').addClass('awesome');
 

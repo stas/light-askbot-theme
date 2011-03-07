@@ -47,11 +47,11 @@
         {% for user in users.object_list %}
         <li class="user">
             <ul>
-                    <li class="thumb">{{ macros.gravatar(user, 32) }}</li>
-                    <li class="name"><a href="{% url user_profile user.id, user.username|slugify %}">{{user.username}}</a>{{ macros.user_country_flag(user) }}</li>
-                    <li class="badge">{{ macros.user_score_and_badge_summary(user) }}</li>
-                </ul>
-        </div>
+                <li class="thumb">{{ macros.gravatar(user, 32) }}</li>
+                <li class="name"><a href="{% url user_profile user.id, user.username|slugify %}">{{user.username}}</a>{{ macros.user_country_flag(user) }}</li>
+                <li class="badge">{{ macros.user_score_and_badge_summary(user) }}</li>
+            </ul>
+        </li>
         {% endfor %}
     </ul>
 </div>

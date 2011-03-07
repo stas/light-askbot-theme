@@ -20,6 +20,7 @@ parameters:
 {% block head %}{% endblock %}
 {% block title %}{% spaceless %}{% trans %}Registration{% endtrans %}{% endspaceless %}{% endblock %}
 {% block content %}
+<div class="inner">
     <h1>{% trans %}Registration{% endtrans %}</h1>
     <div id="completetxt" >
         <div class="message">
@@ -80,5 +81,6 @@ parameters:
             <div class="submit-row"><input type="submit" class="submit" name="bnewaccount" value="{% trans %}create account{% endtrans %}"/></div>
         </form>
     </div>
+</div>
 {% endblock %}
 <!-- end complete.html -->
