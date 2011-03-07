@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{"/jquery-openid/openid.css"|media}}"/>
 {% endblock %}
 {% block content %}
+<div class="inner auth">
 <h1>{{page_title}}</h1>
     {% if answer %}
         <div class="message">
@@ -214,29 +215,32 @@
         </form>
         {% endif %}
     {% endif %}
+</div>
 {% endblock %}
 
 {% block sidebar %}
-<div class="boxC">
-    <h2>{% trans %}Why use OpenID?{% endtrans %}</h2>
-    <ul>
-        <li>
-            {% trans %}with openid it is easier{% endtrans %}
-        </li>
-        <li>
-            {% trans %}reuse openid{% endtrans %}
-        </li>
-        <li>
-            {% trans %}openid is widely adopted{% endtrans %}
-        </li>
-        <li>
-            {% trans %}openid is supported open standard{% endtrans %}
-        </li>
-    </ul>
-    <p class="info-box-follow-up-links">
-        <a href="http://openid.net/what/" target="_blank">{% trans %}Find out more{% endtrans %} »</a><br/>
-        <a href="http://openid.net/get/" target="_blank">{% trans %}Get OpenID{% endtrans %} »</a>
-    </p>
+<div class="inner">
+    <div class="boxC">
+        <h3>{% trans %}Why use OpenID?{% endtrans %}</h3>
+        <ul>
+            <li>
+                {% trans %}with openid it is easier{% endtrans %}
+            </li>
+            <li>
+                {% trans %}reuse openid{% endtrans %}
+            </li>
+            <li>
+                {% trans %}openid is widely adopted{% endtrans %}
+            </li>
+            <li>
+                {% trans %}openid is supported open standard{% endtrans %}
+            </li>
+        </ul>
+        <p class="info-box-follow-up-links">
+            <a href="http://openid.net/what/" target="_blank">{% trans %}Find out more{% endtrans %} »</a><br/>
+            <a href="http://openid.net/get/" target="_blank">{% trans %}Get OpenID{% endtrans %} »</a>
+        </p>
+    </div>
 </div>
 {% endblock%}
 {% block endjs %}

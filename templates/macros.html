@@ -77,35 +77,37 @@
 {%- macro paginator(p, position='left') -%}{# p is paginator context dictionary #}
 {% spaceless %}
     {% if p.is_paginated %}
-        <div class="paginator" style="float:{{position}}">
-        {% if p.has_previous %}
-            <span class="prev"><a href="{{p.base_url}}page={{ p.previous }}{{ p.extend_url }}" title="{% trans %}previous{% endtrans %}">
-        &laquo; {% trans %}previous{% endtrans %}</a></span>
-        {% endif %}
-        {% if not p.in_leading_range %}
-            {% for num in p.pages_outside_trailing_range %}
-                <span class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" >{{ num }}</a></span>
-            {% endfor %}
-        ...
-        {% endif %}
-         
-        {% for num in p.page_numbers %}
-          {% if num == p.page and p.pages != 1%}
-            <span class="curr" title="{% trans %}current page{% endtrans %}">{{ num }}</span>
-          {% else %}
-            <span class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" title="{% trans %}page number {{num}}{% endtrans %}">{{ num }}</a></span>
-          {% endif %}
-        {% endfor %}
-         
-        {% if not p.in_trailing_range %}
+        <div class="paginator">
+            <ul>
+            {% if p.has_previous %}
+                <li class="prev"><a href="{{p.base_url}}page={{ p.previous }}{{ p.extend_url }}" title="{% trans %}previous{% endtrans %}">
+            &laquo; {% trans %}previous{% endtrans %}</a></li>
+            {% endif %}
+            {% if not p.in_leading_range %}
+                {% for num in p.pages_outside_trailing_range %}
+                    <li class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" >{{ num }}</a></li>
+                {% endfor %}
             ...
-            {% for num in p.pages_outside_leading_range|reverse %}
-                <span class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" title="{% trans %}page number {{ num }}{% endtrans %}">{{ num }}</a></span>
+            {% endif %}
+             
+            {% for num in p.page_numbers %}
+              {% if num == p.page and p.pages != 1%}
+                <li class="curr" title="{% trans %}current page{% endtrans %}">{{ num }}</li>
+              {% else %}
+                <li class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" title="{% trans %}page number {{num}}{% endtrans %}">{{ num }}</a></li>
+              {% endif %}
             {% endfor %}
-        {% endif %}
-        {% if p.has_next %}
-            <span class="next"><a href="{{p.base_url}}page={{ p.next }}{{ p.extend_url }}" title="{% trans %}next page{% endtrans %}">{% trans %}next page{% endtrans %} &raquo;</a></span>
-        {% endif %}
+             
+            {% if not p.in_trailing_range %}
+                ...
+                {% for num in p.pages_outside_leading_range|reverse %}
+                    <li class="page"><a href="{{p.base_url}}page={{ num }}{{ p.extend_url }}" title="{% trans %}page number {{ num }}{% endtrans %}">{{ num }}</a></li>
+                {% endfor %}
+            {% endif %}
+            {% if p.has_next %}
+                <li class="next"><a href="{{p.base_url}}page={{ p.next }}{{ p.extend_url }}" title="{% trans %}next page{% endtrans %}">{% trans %}next page{% endtrans %} &raquo;</a></li>
+            {% endif %}
+            </ul>
         </div> 
     {% endif %}
 {% endspaceless %}
@@ -169,7 +171,7 @@
 {%- macro post_contributor_avatar_and_credentials(post, user) -%}
     {% if post.is_anonymous %}
         <img alt="{% trans %}anonymous user{% endtrans %}" src="{{ '/images/anon.png'|media }} " class="gravatar" width="32" height="32" />
-        <p>{{ user.get_anonymous_name() }}</p>
+        <p class="profile-link">{{ user.get_anonymous_name() }}</p>
     {% else %}
         {{ gravatar(user, 32) }}
         <p class="profile-link">{{ user.get_profile_link()}}{{ user_country_flag(user) }}{% if not user.website %}{% endif %}</p>

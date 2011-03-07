@@ -1,7 +1,8 @@
-{% extends "two_column_body.html" %}
+{% extends "one_column_body.html" %}
 <!-- template feedback.html -->
 {% block title %}{% spaceless %}{% trans %}Feedback{% endtrans %}{% endspaceless %}{% endblock %}
 {% block content %}
+
 <h1>{% trans %}Give us your feedback!{% endtrans %}</h1>
 <form method="post" action="{% url feedback %}" accept-charset="utf-8">
     {% if user.is_authenticated() %}

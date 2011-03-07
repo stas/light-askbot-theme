@@ -1,4 +1,4 @@
-{% extends "two_column_body.html" %}
+{% extends "one_column_body.html" %}
 {% import "macros.html" as macros %}
 <!-- tags.html -->
 {% block title %}{% spaceless %}{% trans %}Tag list{% endtrans %}{% endspaceless %}{% endblock %}
@@ -21,15 +21,18 @@
         >{% trans %}by popularity{% endtrans %}</a>
     </div>
 </div>
-<p>
+{% if stag %}
+<p class="aligncenter">
     {% if stag %}
-        {% trans %}All tags matching '<span class="darkred"><strong>{{ stag }}</strong></span>'{% endtrans %}:
+        {% trans %}All tags matching '<span><strong>{{ stag }}</strong></span>'{% endtrans %}:
     {% endif %}
     {% if not tags.object_list %}
         <span>{% trans %}Nothing found{% endtrans %}</span>
     {% endif %}
 </p>
+{% endif %}
 {% if tags.object_list %}
+<div class="tags-page">
     <ul class='tags'>
         {% for tag in tags.object_list %}
         <li>
@@ -45,8 +48,10 @@
         {% endfor %}
     </ul>
 {% endif %}
+<div class="clearfix"></div>
 <div class="pager">
     {{macros.paginator(paginator_context)}}
+</div>
 </div>
 {% endblock %}
 {% block endjs %}

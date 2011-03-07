@@ -63,8 +63,9 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #question-tags li a:hover { color: #DD4814; }
 .question-entry .vote-buttons { text-align: center; font-weight: bolder; font-size: 120%; }
 #content .post-update-info-container { text-align: right; }
-#content .post-update-info p { line-height: 110%; }
+#content .post-update-info p { line-height: 110%; max-width: 200px; }
 #content .post-update-info .since { font-style: italic; color: #777; font-size: 90%; }
+#content .post-update-info .tip { font-style: italic; color: #777; font-size: 80%; }
 #content .post-update-info .www-link { color: #777; font-size: 90%; }
 #content .post-update-info .profile-link a { font-weight: bolder; text-decoration: none; font-size: 130%; }
 .comments a.button { text-transform: uppercase; }
@@ -94,6 +95,22 @@ blockquote { margin-bottom: 10px; margin-right: 15px; padding: 10px 0px 1px 10px
 #related-tags .tag-left a:hover { color: #DD4814; }
 #content .rss-link .rss a { text-transform: uppercase; text-decoration: none; }
 #related-tags .tag-number { font-weight: bolder; }
+#content.wide .tags-page ul.tags li a { text-decoration: none; text-transform: uppercase; color: #444; }
+#content.wide .tags-page ul.tags li span { font-weight: bolder; }
+#content .paginator { text-align: center; }
+#content .paginator ul li a { color: #FFF; text-decoration: none; }
+#content .paginator ul li a:hover { color: #EEE; }
+#content.wide .userList ul li.name a { text-decoration: none; font-weight: bolder; }
+#medalList ul li.badge strong { font-weight: bolder; }
+#medalList ul li.badge p { float: right; display: inline; padding: 7px 0; font-style: italic; color: #777; }
+#sidebar .medal { color: #444; cursor: pointer; }
+#sidebar .medal-desc { font-style: italic; color: #777; }
+
+/* BADGES!!! */
+.badge1 { color: #FBB829 !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
+.badge2 { color: #CCC !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
+.badge3 { color: #A7998B !important; font-size: 200%; line-height: 1px; padding-top: 3px; float: left; }
+
 
 /*
 Ubuntu Font
@@ -120,6 +137,10 @@ Ubuntu Font
 .notify,
 #question-list .short-summary .counts,
 #related-tags .tag-number,
+#content.wide .tags-page ul.tags li,
+#content.wide .userList ul li.name,
+#medalList ul li.badge strong,
+#sidebar .medal,
 .awesome,
 h1,
 h2,

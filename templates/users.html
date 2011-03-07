@@ -1,4 +1,4 @@
-{% extends "two_column_body.html" %}
+{% extends "one_column_body.html" %}
 {% import "macros.html" as macros %}
 <!-- users.html -->
 {% block title %}{% spaceless %}{% trans %}Users{% endtrans %}{% endspaceless %}{% endblock %}
@@ -32,6 +32,7 @@
         >{% trans %}by username{% endtrans %}</a>
     </div>
 </div>
+{% if suser %}
 <p>
     {% if suser %}
         {% trans %}users matching query {{suser}}:{% endtrans %}
@@ -40,28 +41,21 @@
         <span>{% trans %}Nothing found.{% endtrans %}</span>
     {% endif %}
 </p>
+{% endif %}
 <div class="userList">
-    <table class="list-table">
-        <tr>
-            <td class="list-td">
-                {% for user in users.object_list %}
-                <div class="user">
-                    <ul>
-                            <li class="thumb">{{ macros.gravatar(user, 32) }}</li>
-                            <li><a href="{% url user_profile user.id, user.username|slugify %}">{{user.username}}</a>{{ macros.user_country_flag(user) }}</li>
-                            <li>{{ macros.user_score_and_badge_summary(user) }}</li>
-                        </ul>
-                </div>
-                
-        {% if loop.index is divisibleby 7 %}
-            </td>
-            <td>
-        {% endif %}
-                {% endfor %}
-            </td>
-        </tr>   
-    </table>
+    <ul>
+        {% for user in users.object_list %}
+        <li class="user">
+            <ul>
+                    <li class="thumb">{{ macros.gravatar(user, 32) }}</li>
+                    <li class="name"><a href="{% url user_profile user.id, user.username|slugify %}">{{user.username}}</a>{{ macros.user_country_flag(user) }}</li>
+                    <li class="badge">{{ macros.user_score_and_badge_summary(user) }}</li>
+                </ul>
+        </div>
+        {% endfor %}
+    </ul>
 </div>
+<div class="clearfix"></div>
 <div class="pager">
     {{ macros.paginator(paginator_context) }}
 </div>              
