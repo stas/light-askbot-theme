@@ -58,7 +58,7 @@ a#ab-responses,
 #content .evenMore,
 #content .search-tips { background: #FFF; margin: 10px 0; padding: 2px 0; clear: both; }
 
-#content .user-content { background: #FFF; padding: 10px; clear: both; margin-bottom: 10px; }
+#content .user-content { padding: 10px; clear: both; margin-bottom: 10px; }
 #content .user-info-table { width: 100%; }
 #content .user-info-table td { padding: 5px; }
 #content .user-info-table .user-profile-tool-links { white-space: nowrap; padding: 0; }
@@ -112,6 +112,10 @@ a#ab-responses,
 #content .answer-entry .post-update-info-container { clear: right; }
 #content .answered-by-owner { /* TODO: make it fancy */ }
 
+.vote-notification { z-index: 1; cursor: pointer; display: none; position: absolute; padding: 5px; color: white; background-color: #EEE; text-align: center; font-size: 60%; color: #772953; margin-top: 10px; }
+.vote-buttons img { cursor: pointer; }
+.answer-entry .vote-notification { font-size: 70%; }
+
 #content .rss-link p { padding: 0; margin: 0; margin-top: 5px; }
 #content .rss-link .rss a { padding-right: 15px; background: transparent url("../img/actions/rss.png") no-repeat 0 right; }
 
@@ -133,6 +137,12 @@ a#ab-responses,
 #related-tags .tag-left a,
 #search-tags .tag-right { padding-left: 10px; }
 #question-count { margin-bottom: 0; }
+
+#question-list { float: left; background-color: #FFF; padding: 0; width: 100%; }
+
+.ask-page div#question-list { float: none; width: 706px; }
+.ask-page div#question-list h2 { font-size: 14px; padding-bottom: 0; }
+.ask-page div#question-list span { padding: 3px 7px; margin-right: 5px; background: #EEE; }
 
 .auth label { display: block; }
 .auth .hint a { color: #772953 !important; }
@@ -168,9 +178,8 @@ CSS3
 #content.wide,
 #content .inner.auth,
 #content .evenMore,
-#askform,
+#content > #askform,
 #fmedit,
-#content .user-content,
 #content .post-update-info-container .author,
 #question-controls ul,
 #question-list .short-summary,

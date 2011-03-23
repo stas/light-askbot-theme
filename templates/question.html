@@ -15,8 +15,8 @@
 <div id="askform">
     <div id="question-table" class="question-entry" {% if question.deleted %}class="deleted"{%endif%}>
         <ul>
-            <li class="vote-buttons">
-                <div>
+            <li>
+                <div class="vote-buttons">
                     {% if question_vote %}
                     <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
                         {% if question_vote.is_upvote() %}
@@ -190,8 +190,8 @@
             <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% if answer.author_id==question.author_id %} answered-by-owner{% endif %} {% if answer.deleted %}deleted{% endif %}">
                 <div class="answer-table answer-entry">
                     <ul>
-                        <li class="vote-buttons">
-                            <div>
+                        <li>
+                            <div class="vote-buttons">
                                 <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" 
                                     {% if user_answer_votes[answer.id] == 1 %}
                                         src="{{"/images/vote-arrow-up-on.png"|media}}" 
