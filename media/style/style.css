@@ -66,6 +66,10 @@ a#ab-responses,
 #content .user-info-table .user-details ul { list-style: none; margin-left: 0px; }
 #askform .tabBar { background: #EEE; }
 
+body.user-profile-page h2 { border-bottom: 1px dotted #333; }
+body.user-profile-page h2 a { text-decoration: none; }
+body.user-profile-page .user-stats-table h2 { border: none; }
+
 #askform,
 #fmedit { background: #FFF; padding: 10px; clear: both; margin: 0 1px 10px; }
 #id_title,
@@ -117,17 +121,17 @@ a#ab-responses,
 .answer-entry .vote-notification { font-size: 70%; }
 
 #content .rss-link p { padding: 0; margin: 0; margin-top: 5px; }
-#content .rss-link .rss a { padding-right: 15px; background: transparent url("../img/actions/rss.png") no-repeat 0 right; }
+#content .rss-link .rss a { padding-right: 15px; background: transparent url("../img/actions/rss.png") no-repeat right 0; }
 
 #question-list { clear: both; margin: 10px 0; }
-#question-list .short-summary { background-color: #FFF; margin: 10px 1px; padding: 10px; }
-#question-list .short-summary .counts .votes,
-#question-list .short-summary .counts .answers,
-#question-list .short-summary .counts .views { display: block; float: left; margin-right: 5px; }
-#question-list .short-summary .counts .views { margin-right: 20px; }
-#question-list .short-summary .userinfo { float: right; }
-#question-list .short-summary .tags { list-style: none; }
-#question-list .short-summary .tags li { float: left; padding-left: 10px; padding-right: 10px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px; }
+.short-summary { background-color: #FFF; padding: 10px; }
+.short-summary .counts .votes,
+.short-summary .counts .answers,
+.short-summary .counts .views { display: block; float: left; margin-right: 5px; }
+.short-summary .counts .views { margin-right: 20px; }
+.short-summary .userinfo { float: right; }
+.short-summary .tags { list-style: none; margin-left: 0; }
+.short-summary .tags li { float: left; padding-left: 10px; padding-right: 10px; background: transparent url("../img/actions/tag.png") no-repeat 0 6px; }
 
 #related-tags,
 #search-tags { list-style: none; margin: 0; padding: 0; }
@@ -138,7 +142,7 @@ a#ab-responses,
 #search-tags .tag-right { padding-left: 10px; }
 #question-count { margin-bottom: 0; }
 
-#question-list { float: left; background-color: #FFF; padding: 0; width: 100%; }
+#question-list { float: left; padding: 0; width: 100%; }
 
 .ask-page div#question-list { float: none; width: 706px; }
 .ask-page div#question-list h2 { font-size: 14px; padding-bottom: 0; }
@@ -192,6 +196,7 @@ CSS3
 Addons
 */
 input[type="text"], textarea { border: 2px solid #CCC; border-right: 1px solid #DDD; border-bottom: 1px solid #DDD; padding: 1px 3px; }
+.ac_over { background: #666 !important; }
 
 /*
 Fancyness

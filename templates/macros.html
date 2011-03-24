@@ -267,7 +267,7 @@ poor design of the data or methods on data objects #}
             css_class = None
         )
 -%}
-<ul {% if id %}id={{ id }}{% endif %}
+<ul {% if id %}id="{{ id }}"{% endif %}
     class="tags{% if css_class %} {{css_class}}{% endif %}"
 >
     {% if tags %}
@@ -318,6 +318,24 @@ poor design of the data or methods on data objects #}
     </{{ html_tag }}>
     {{ extra_content }}
     {% endspaceless %}
+{%- endmacro -%}
+
+{%- macro radio_select(name = None, value = None, choices = None) -%}
+    {% for choice in choices %}
+        <p class="choice">
+            {% set id = "id_" ~ name ~ "_" ~ choice[0] %}
+            <label for="{{ id }}">{{ choice[1] }}</label>
+            <input 
+                id="{{ id }}"
+                name="{{ name }}"
+                value="{{ choice[0] }}"
+                type="radio"
+                {% if value == choice[0] %}
+                checked="checked"
+                {% endif %}
+            />
+        </p>
+    {% endfor %}
 {%- endmacro -%}
 
 {%- macro question_summary(question, extra_class=None) -%}
