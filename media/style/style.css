@@ -11,9 +11,27 @@ Layout
 */
 
 body { background: transparent url("../img/dotted-bg.png") top; }
-.notify { height: 20px; margin: 0 auto; width: 980px; background: #772953; border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+
+.notify {
+    height: 32px;
+    margin: 0 auto;
+    width: 100%;
+    background: #772953;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    font-size: 130%;
+}
+
 .notify p { display: inline; }
-#close-notify { float: right; margin-right: 5px; cursor: pointer; }
+
+#close-notify {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 200%;
+}
+
 #ab-header { width: 980px; height: 62px; margin: 0 auto; overflow: hidden; background: #DD4814 url("../img/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
 #ab-logo { width: 130px; height: 62px; float: right; overflow: hidden; display: block; background: transparent url("../img/ubuntu-logo.png") no-repeat 0 10px; width: 120px; height: 40px; margin-right: 10px; }
 #ab-main-nav ul { margin: 0; list-style: none; }
